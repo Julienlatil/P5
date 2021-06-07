@@ -118,7 +118,7 @@ function deleteBasket() {
         while (mainBasket.firstChild) {
             mainBasket.removeChild(mainBasket.firstChild);
             let totalPrice = document.getElementById('total-price');
-            totalPrice.textContent = "Prix total : 0 $";
+            totalPrice.textContent = "Prix total : 0 €";
         }
 
     })
