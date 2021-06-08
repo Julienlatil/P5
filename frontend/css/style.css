@@ -380,3 +380,12 @@ main
 {
 	background-color: #F3E9F1!important;
 }
+
+@media (max-width: 691px) 
+{
+.row-cols-1 
+	{
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}}
