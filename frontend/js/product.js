@@ -7,7 +7,6 @@ class MyProduct {
         this.selectedLenses = selectedLenses;
     }
 }
-
 //////////////////////////////CREATION DES CARDS INDIVIDUELLES DE PRODUIT //////////////////////////////////
 
 //Récupération de l'Id dans l'url
