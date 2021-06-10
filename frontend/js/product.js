@@ -122,21 +122,21 @@ function getLensCamera(buttonBuy, idCamera) {
 
 /////////////////////////////REQUETE API////////////////////////////////////////////////////////////////
 
-async function getCameras() {
-    try {
-        let response = await fetch("http://localhost:3000/api/cameras");
-        if (response.ok) {
-            let cameras = await response.json();
-            console.log(cameras);
-            getIdUrlAndCard(cameras);
-        } else {
-            console.error('Retour du serveur : ', response.status)
-        }
-    } catch (e) {
-        console.log(e);
-    }
-}
+;(async () => {
+    const cameras = await getCameras()
+    getIdUrlAndCard(cameras)
+  })()
 
+async function getCameras() {
+    return fetch("http://localhost:3000/api/cameras")
+    .then((response) => response.json())
+     .then((idCameras) => idCameras)
+     .catch(() => {
+       alert(
+         "La connexion au serveur n'a pas pu être effectué."
+       )
+     })
+ }
 
 /////////////////////////////APPEL DE LA FONCTION/////////////////////////////////
 getCameras();
