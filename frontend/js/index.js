@@ -3,7 +3,6 @@
 ////////////////CREATION DES CARDS A PARTIR DES DONNEES DE L'API//////////////////////////////////////////////////////////
 
 //Création des cards
-
 function createCardCameras(cameras) {
     let divParentParent = document.createElement("div");
     const mainHome = document.getElementById("main-home");
@@ -84,24 +83,25 @@ function createButtonLinkProduct(linkProduct) {
     // Ajout texte au bouton
     buttonBuy.textContent = "Voir";
 }
-
 //Appel de l'API pour récupérer les données de chaques articles disponibles
 
+;(async () => {
+    const cameras = await getCameras()
+    createCardCameras(cameras)
+  })()
+
 async function getCameras() {
-    try {
-        let response = await fetch("http://localhost:3000/api/cameras");
-        if (response.ok) {
-            let cameras = await response.json();
-            createCardCameras(cameras);
-        } else {
-            console.error('Retour du serveur : ', response.status)
-        }
-    } catch (e) {
-        console.log(e);
-    }
-}
+    return fetch("http://localhost:3000/api/cameras")
+    .then((response) => response.json())
+     .then((cameras) => cameras)
+     .catch(() => {
+       alert(
+         "La connexion au serveur n'a pas pu être effectué."
+       )
+     })
+ }
 
-
+  
 ///////////////////////////////////////APPEL DE LA FONCTION///////////////////////////////////////////////
 getCameras()
 
