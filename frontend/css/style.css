@@ -56,7 +56,7 @@ a:hover
 .bg-img
 {
 	background-image: url("../images/bg_camera.jpg");
-	
+  
 }
 
 .container-title
@@ -382,11 +382,14 @@ main
 	background-color: #F3E9F1!important;
 }
 
-@media (max-width: 691px) 
-{
-.row-cols-1 
-	{
+
+@media (max-width: 691px) {
+.row-cols-1 {
   display: flex;
   align-content: center;
   flex-direction: column;
 }}
+
+input:invalid {
+	border: 2px dashed red;
+  }
