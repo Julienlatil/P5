@@ -75,7 +75,7 @@ function totalPriceOrder(arrayPrice) {
 // Création du panier
 async function getBasket() {
     try {
-        let response = await fetch("http://localhost:3000/api/cameras");
+        let response = await fetch("http://localhost:3000/api/cameras")
         if (response.ok) {
             let cameras = await response.json();
             // Récupérer le bon objet dans l'api
@@ -183,7 +183,12 @@ function validateForm() {
         let address = document.getElementById('address').value;
         let city = document.getElementById('city').value;
         let email = document.getElementById('email').value;
-        if (firstname, lastname, address, city, email != "" && /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
+        
+        if (firstname,
+            lastname,
+            address,
+            city,
+            email != "" && /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
             confirmationOrder();
             return true;
         } else {
@@ -192,6 +197,9 @@ function validateForm() {
         }
 })
 }
+
+  
+  
 
 ///////////////////////////APPEL DES FONCTIONS///////////////////////////////////////
 getBasket();
